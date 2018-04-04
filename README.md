@@ -3,6 +3,7 @@
 # For Churn Customer Prediction
 ## Classification problem of highly unbalanced classes
 * The project were written for kaggle Churn prediction competition
+* I added data sample in repository, full data sets can be found in Kaggle competition
 * WSDM - KKBox's Churn Prediction Challenge
 * https://www.kaggle.com/c/kkbox-churn-prediction-challenge
 
