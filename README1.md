@@ -316,7 +316,7 @@ plt.title('Payment Per Plan days Feture')
 
 
 
-![png](output_13_1.png)
+![png](vae_classification_of_churn_customer/output_13_1.png)
 
 
 Create another new feture.
@@ -377,7 +377,7 @@ plt.title('registered_via')
 
 
 
-![png](output_20_1.png)
+![png](vae_classification_of_churn_customer/output_20_1.png)
 
 
 
@@ -389,7 +389,7 @@ order_col_by_churn_percent(col)
 
 
 
-![png](output_21_1.png)
+![png](vae_classification_of_churn_customer/output_21_1.png)
 
 
 ### payment_method_id
@@ -403,7 +403,7 @@ dn = agg_col_by_chrn(train, col)
 ```
 
 
-![png](output_23_0.png)
+![png](vae_classification_of_churn_customer/output_23_0.png)
 
 
 
@@ -423,7 +423,7 @@ order_col_by_churn_percent(col)
 
 
 
-![png](output_25_1.png)
+![png](vae_classification_of_churn_customer/output_25_1.png)
 
 
 ### city
@@ -438,7 +438,7 @@ drow_col(train, 'city')
 
 
 
-![png](output_27_1.png)
+![png](vae_classification_of_churn_customer/output_27_1.png)
 
 
 
@@ -449,7 +449,7 @@ dn = agg_col_by_chrn(train, col)
 ```
 
 
-![png](output_28_0.png)
+![png](vae_classification_of_churn_customer/output_28_0.png)
 
 
 
@@ -461,7 +461,7 @@ order_col_by_churn_percent(col)
 
 
 
-![png](output_29_1.png)
+![png](vae_classification_of_churn_customer/output_29_1.png)
 
 
 ### gender
@@ -474,7 +474,7 @@ dn = agg_col_by_chrn(train, col)
 ```
 
 
-![png](output_31_0.png)
+![png](vae_classification_of_churn_customer/output_31_0.png)
 
 
 
@@ -486,7 +486,7 @@ order_col_by_churn_percent('gender')
 
 
 
-![png](output_32_1.png)
+![png](vae_classification_of_churn_customer/output_32_1.png)
 
 
 ### Encode Categorial Features
@@ -721,7 +721,7 @@ SVG(model_to_dot(vae, show_shapes='true').create(prog='dot', format='svg'))
 
 
 
-![svg](output_47_0.svg)
+![svg](vae_classification_of_churn_customer/output_47_0.svg)
 
 
 
@@ -853,7 +853,7 @@ drow_history(vae_history, 'loss')
 ```
 
 
-![png](output_50_0.png)
+![png](vae_classification_of_churn_customer/output_50_0.png)
 
 
 ## Lets view the data set in Latent space
@@ -878,7 +878,7 @@ plt.show()
 
 
 
-![png](output_52_1.png)
+![png](vae_classification_of_churn_customer/output_52_1.png)
 
 
 ### Classification of Churn in the latent space
@@ -930,7 +930,7 @@ plt.title("2-Class classification (k = %i, weights = '%s')"
 
 
 
-![png](output_54_1.png)
+![png](vae_classification_of_churn_customer/output_54_1.png)
 
 
 
@@ -944,7 +944,7 @@ print_stats(y_val, y_val_neibghour)
 ```
 
 
-![png](output_55_0.png)
+![png](vae_classification_of_churn_customer/output_55_0.png)
 
 
     Accuracy: 0.93317, Cohen's Kappa Score: 0.56833
@@ -991,7 +991,7 @@ plt.title('Recostruction error dencity in Churn vs Not Churn Populations')
 
 
 
-![png](output_57_1.png)
+![png](vae_classification_of_churn_customer/output_57_1.png)
 
 
 
@@ -1010,7 +1010,7 @@ print_stats(y_val, y_val_pred)
 ```
 
 
-![png](output_58_0.png)
+![png](vae_classification_of_churn_customer/output_58_0.png)
 
 
     Accuracy: 0.78416, Cohen's Kappa Score: 0.17408
@@ -1045,25 +1045,18 @@ plt.figure(figsize=(10,6))
 sns.kdeplot(error_df.recon_error[error_df.churn==0], label='not churn', shade=True, clip=(0,10))
 sns.kdeplot(error_df.recon_error[error_df.churn==1], label='churn', shade=True, clip=(0,10))
 plt.xlabel('reconstruction error');
-ply.title('Reconstruction error in the Validation data')
+plt.title('Reconstruction error in the Validation data')
 ```
 
 
-    ---------------------------------------------------------------------------
 
-    NameError                                 Traceback (most recent call last)
 
-    <ipython-input-431-d65615da04af> in <module>()
-         10 sns.kdeplot(error_df.recon_error[error_df.churn==1], label='churn', shade=True, clip=(0,10))
-         11 plt.xlabel('reconstruction error');
-    ---> 12 ply.title('Reconstruction error in the Validation data')
-    
-
-    NameError: name 'ply' is not defined
+    <matplotlib.text.Text at 0x7f903330ef50>
 
 
 
-![png](output_60_1.png)
+
+![png](vae_classification_of_churn_customer/output_60_1.png)
 
 
 
