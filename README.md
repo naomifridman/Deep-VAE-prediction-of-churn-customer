@@ -5,19 +5,19 @@ import os
 
 ```
 
-<h1> Deep Variational Autoencoder</h1>
-# For 1D unbalanced classification problem
-## Semi-supervised Churn Customer Prediction
+<h1> Deep Variational Autoencoder
+ For 1D unbalanced classification problem</h1>
+<h2> Semi-supervised Churn Customer Prediction</h2>
 * The project were written for kaggle Churn prediction competition
 * WSDM - KKBox's Churn Prediction Challenge
 * https://www.kaggle.com/c/kkbox-churn-prediction-challenge</br>
-### <b>The work plan:</b>
+<h3> <b>The work plan:</b></h3>
 1. Read the data and create dummy variables for the catecorial fetures.
 2. Create, and train variational autoencoder, that decode the data into a 2 dimentional latent space.
 3. View the data in the latent 2D space, and check classification astrategies.</br>
-### <b>Reference to Variational Auto encoder:</b>
+<h3> <b>Reference to Variational Auto encoder:</b></h3>
 * https://wiseodd.github.io/techblog/2016/12/10/variational-autoencoder/</br>
-### <b>The Data:</b>
+<h3> <b>The Data:</b></h3>
 * The data can be downloaded at the kaggle competition website.
 * Data reading, aggregation and feture engeeniring, here: https://github.com/naomifridman/Neural-Network-Churn-Prediction. Small data sample can be found here as well.
 
@@ -39,8 +39,8 @@ from sklearn.metrics import (confusion_matrix, precision_recall_curve, auc,
                              precision_recall_fscore_support)
 ```
 
-## Read Data
-#### train_data.csv - the train set, of kaggle competition, after feature ingeneering.
+<h2> Read Data</h2>
+<h4> train_data.csv - the train set, of kaggle competition, after feature ingeneering.</h4>
 * msno: user id
 * is_churn: This is the target variable. Churn is defined as whether the user did not continue the subscription within 30 days of expiration. is_churn = 1 means churn,is_churn = 0 means renewal.
 
@@ -243,7 +243,7 @@ train.head()
 
 
 
-## Visualize and Analize data functionality
+<h2> Visualize and Analize data functionality</h2>
 
 
 ```python
@@ -299,7 +299,7 @@ def drow_col(df, col):
 
 ```
 
-## Handle categorial features
+<h2> Handle categorial features</h2>
 * There are few categorial features in the data set. Lets view them and create dummy variables.
 
 
@@ -318,7 +318,7 @@ def order_col_by_churn_percent(col,drow=True):
         drow_col(train, col)
 ```
 
-### registered_via
+<h3> registered_via</h3>
 
 
 ```python
@@ -338,7 +338,7 @@ order_col_by_churn_percent(col)
 ![png](png/output_15_0.png)
 
 
-### payment_method_id
+<h3>  payment_method_id</h3> 
 
 
 
@@ -359,7 +359,7 @@ order_col_by_churn_percent(col)
 ![png](png/output_18_0.png)
 
 
-### city
+<h3>  city</h3> 
 
 
 ```python
@@ -379,7 +379,7 @@ order_col_by_churn_percent(col)
 ![png](png/output_21_0.png)
 
 
-### gender
+<h3>  gender</h3> 
 
 
 
@@ -401,7 +401,7 @@ order_col_by_churn_percent('gender')
 ![png](png/output_24_0.png)
 
 
-### Encode Categorial Features
+<h3>  Encode Categorial Features</h3> 
 Create dummy feature for each category.
 We will not applt this on payment_method_id, becausea there are a lot of values,
 and we will get big sparse matrix.
@@ -457,7 +457,7 @@ print train.columns
           dtype='object')
 
 
-## Model evaluation and visualization functions
+<h2> Model evaluation and visualization functions</h2>
 
 
 ```python
@@ -510,7 +510,7 @@ def drow_history(history, metric):
     plt.show()    
 ```
 
-# VAE - variational autoencoder
+<h1> VAE - variational autoencoder</h1>
 * refernce: https://wiseodd.github.io/techblog/2016/12/10/variational-autoencoder/
 
 Since vae neural net is highly customized, data set size must be devided bt batch size 
@@ -616,7 +616,7 @@ print X_val.shape, X_train.shape
     (294600, 48) (1374600, 48)
 
 
-## Vaeuational autoencoder creation
+<h2>  Vaeuational autoencoder creation</h2>
 
 
 ```python
@@ -813,7 +813,7 @@ drow_history(vae_history, 'loss')
 ![png](png/output_49_0.png)
 
 
-#### Reconstruction error
+<h3>  Reconstruction error</h3> 
 * We can see that distribution of reconstruction error is different bwtween Churn and Not Churn customers, but the difference is not big enought to perform classification.
 
 
@@ -889,7 +889,7 @@ plt.title('Reconstruction error - Train set')
 ![png](png/output_53_1.png)
 
 
-### Latent space
+<h3>  Latent space</h3> 
 * We can see that Curn and Not Churn customers, can be separable at latent space.
 
 
@@ -944,7 +944,7 @@ plt.show()
 ![png](png/output_57_1.png)
 
 
-### Lest classify in Latent spacw
+<h3>  Lest classify in Latent space</h3> 
 * Any classification method can be used, lets try nearest neighbour
 * Playing with classification parameter to get best prediction on Validation set
 
@@ -994,8 +994,7 @@ plt.title("2-Class classification (k = %i, weights = '%s')"
 
 ![png](png/output_59_1.png)
 
-
-#### Prediction on validation set
+<h3>  Prediction on validation set</h3> 
 
 
 ```python
@@ -1027,7 +1026,7 @@ print_stats(y_val, y_val_neibghour)
     
 
 
-#### Prediction on Test set
+<h3>  Prediction on Test set</h3> 
 
 
 ```python
