@@ -546,18 +546,6 @@ print y_train.shape, y_val.shape, y_test.shape, train.shape
     (1374691,) (294600,) (294600,) (1963891, 50)
 
 
-
-```python
-print yy_val1.sum()
-print y_val.sum()
-print y_test.sum()
-```
-
-    45046
-    22412
-    22634
-
-
 Since vae neural net is highly customized, data set size must be devided bt batch size 
 
 
