@@ -513,36 +513,7 @@ def drow_history(history, metric):
 <h1> VAE - variational autoencoder</h1>
 * refernce: https://wiseodd.github.io/techblog/2016/12/10/variational-autoencoder/
 
-Since vae neural net is highly customized, data set size must be devided bt batch size 
-
-
-```python
-'''uniform
-weights='uniform'
-n_neighbors=27
-
-Accuracy: 0.95342, Cohen's Kappa Score: 0.64526
-Log Loss: 1.60892059163
- 
-Confusion Matrix:
-[[355829   6603]
- [ 11690  18578]]
-Classification Report:
-             precision    recall  f1-score   support
-
-          0       0.97      0.98      0.97    362432
-          1       0.74      0.61      0.67     30268
-
-avg / total       0.95      0.95      0.95    392700
-'''
-```
-
-
-
-
-    "uniform\nweights='uniform'\nn_neighbors=27\n\nAccuracy: 0.95342, Cohen's Kappa Score: 0.64526\nLog Loss: 1.60892059163\n \nConfusion Matrix:\n[[355829   6603]\n [ 11690  18578]]\nClassification Report:\n             precision    recall  f1-score   support\n\n          0       0.97      0.98      0.97    362432\n          1       0.74      0.61      0.67     30268\n\navg / total       0.95      0.95      0.95    392700\n"
-
-
+Since vae neural net is highly customized, data set size must be devided by batch size 
 
 
 ```python
